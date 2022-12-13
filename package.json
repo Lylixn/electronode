@@ -19,5 +19,8 @@
     "eslint": "^7.32.0",
     "typescript": "^4.8.3"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@types/restify": "^8.5.5",
+    "restify": "^10.0.0"
+  }
 }
