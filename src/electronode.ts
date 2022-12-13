@@ -26,7 +26,10 @@ export class Electronode {
 const arg = process.execArgv[0]
 
 if ((arg != null) && (arg !== '') && !isNaN(Number(arg.toString()))){
-  new Electronode(Number(process.execArgv[0]), true);
+  const port = Number(process.execArgv[0]);
+  const debug = true;
+
+  new Electronode(port, debug);
 } else {
   console.log('You dont set the port number');
 }

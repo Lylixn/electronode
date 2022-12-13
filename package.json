@@ -9,7 +9,7 @@
     "lint": "eslint -c .eslintrc --ext .ts ./src",
     "start": "npm run build && electron ./dist/main.js"
   },
-  "repository": "https://github.com/electron/electron-quick-start-typescript",
+  "repository": "https://github.com/Lylixn/electronode.git",
   "author": "Lylixn",
   "license": "CC0-1.0",
   "devDependencies": {
