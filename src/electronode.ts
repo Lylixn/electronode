@@ -1,18 +1,30 @@
-import * as electron from "electron";
 import * as restify from "restify";
-import * as process from "process";
+import * as electron from "electron";
+
+import {BrowserWindowInit} from "./api/BrowserWindow";
+
+// Prevent script close when all windows are closed
+electron.app.on('before-quit', (event: electron.Event) => {
+  event.preventDefault();
+})
 
 export class Electronode {
-  private _server: restify.Server;
+  private readonly _server: restify.Server;
   private readonly _port: number;
   private readonly _debug: boolean;
 
-  constructor(port: number, debug: boolean) {
-    this._port = port;
-    this._debug = debug;
+  constructor() {
+    this._port = 3000;
+    this._debug = false;
     this._server = restify.createServer();
 
+    this._server.use(restify.plugins.queryParser({mapParams: true}));
+    this._server.use(restify.plugins.bodyParser({ mapParams: true }));
+    this._server.use(restify.plugins.acceptParser(this._server.acceptable));
+
     this.start();
+
+    this.init();
   }
 
   start(): void {
@@ -21,16 +33,10 @@ export class Electronode {
     });
   }
 
+  init(): void {
+    BrowserWindowInit(this._server)
+  }
+
 }
 
-const arg = process.execArgv[0]
-
-if ((arg != null) && (arg !== '') && !isNaN(Number(arg.toString()))){
-  const port = Number(process.execArgv[0]);
-  const debug = true;
-
-  new Electronode(port, debug);
-} else {
-  console.log('You dont set the port number');
-}
-
+new Electronode();

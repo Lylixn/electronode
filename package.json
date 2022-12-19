@@ -2,12 +2,12 @@
   "name": "electronode",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/electronode.js",
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "npm run build && electron ./dist/main.js"
+    "start": "npm run build && electron ./dist/electronode.js"
   },
   "repository": "https://github.com/Lylixn/electronode.git",
   "author": "Lylixn",
