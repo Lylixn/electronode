@@ -3,7 +3,7 @@
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
 ![Windows](https://img.shields.io/badge/Windows-0078D6?style=for-the-badge&logo=windows&logoColor=white)
 
-# Electronode - Deploy your app with into a new dimension
+# Electronode - Deploy your app into a new dimension
 
 ## Summary
 
@@ -13,10 +13,10 @@
 
 ## Electronode
 
-- ### LockIt is a password generator inspired by dashlane.
+- ### Electronode is a web api of electron.
 
-- It integrates a secure generator with a random generation and has a verification of the strength of your password.
-- It is made in HTML/CSS/JS and is embed a window in electron, the interface is simple, efficient and modern.
+- A server api and a application api.
+- It is made in Typescript and embed a electron instance, the api is simple, efficient and modern.
 - It's light, practical and compatible with almost all operating systems.
 
 ## Installation
