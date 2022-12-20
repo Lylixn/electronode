@@ -7,7 +7,8 @@
     "build": "tsc",
     "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "npm run build && electron ./dist/electronode.js"
+    "start": "npm run build && electron ./dist/electronode.js",
+    "run": "electron ./dist/electronode.js"
   },
   "repository": "https://github.com/Lylixn/electronode.git",
   "author": "Lylixn",

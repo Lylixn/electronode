@@ -1,6 +1,6 @@
 import * as restify from "restify";
 import * as electron from "electron";
-import {BrowserWindowInit} from "./endpoint/BrowserWindowEndpoint";
+import {BrowserWindowInit} from "./endpoint/browserWindowEndpoint";
 
 // Prevent script close when all windows are closed
 electron.app.on('before-quit', (event: electron.Event) => {
