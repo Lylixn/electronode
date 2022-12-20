@@ -28,6 +28,13 @@ import {isSimpleFullScreen} from "./browser_window/dynamic/get/isSimpleFullScree
 import {isNormal} from "./browser_window/dynamic/get/isNormal";
 import {setAspectRatio} from "./browser_window/dynamic/post/setAspectRatio";
 import {setBackgroundColor} from "./browser_window/dynamic/post/setBackgroundColor";
+import {previewFile} from "./browser_window/dynamic/post/previewFile";
+import {closeFilePreview} from "./browser_window/dynamic/post/closeFilePreview";
+import {setBounds} from "./browser_window/dynamic/post/setBounds";
+import {getBounds} from "./browser_window/dynamic/get/getBounds";
+import {getBackgroundColor} from "./browser_window/dynamic/get/getBackgroundColor";
+import {setContentBounds} from "./browser_window/dynamic/post/setContentBounds";
+import {getContentBounds} from "./browser_window/dynamic/get/getContentBounds";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -51,10 +58,15 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/unmaximize', unmaximize);
     server.post('/api/browser_window/:id/minimize', minimize);
     server.post('/api/browser_window/:id/restore', restore);
+    server.post('/api/browser_window/:id/preview_file', previewFile);
+    server.post('/api/browser_window/:id/close_file_preview', closeFilePreview);
+
     server.post('/api/browser_window/:id/set_full_screen', setFullScreen);
     server.post('/api/browser_window/:id/set_simple_full_screen', setSimpleFullScreen);
     server.post('/api/browser_window/:id/set_aspect_ratio', setAspectRatio);
     server.post('/api/browser_window/:id/set_background_color', setBackgroundColor);
+    server.post('/api/browser_window/:id/set_bounds', setBounds);
+    server.post('/api/browser_window/:id/set_content_bounds', setContentBounds);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -65,6 +77,10 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_full_screen', isFullScreen);
     server.get('/api/browser_window/:id/is_simple_full_screen', isSimpleFullScreen);
     server.get('/api/browser_window/:id/is_normal', isNormal);
+
+    server.get('/api/browser_window/:id/get_bounds', getBounds);
+    server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);
+    server.get('/api/browser_window/:id/get_content_bounds', getContentBounds);
 
     return true;
 }

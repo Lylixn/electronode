@@ -1,6 +1,5 @@
 import * as electron from "electron";
 import Size = Electron.Size;
-import {setBackgroundColor} from "../endpoint/browser_window/dynamic/post/setBackgroundColor";
 
 export class BrowserWindow {
     // all windows instances
@@ -77,6 +76,19 @@ export class BrowserWindow {
     // return if the window is normal
     public isNormal(): boolean {
         return this._window.isNormal();
+    }
+
+    // get the bounds of a window
+    public getBounds(): electron.Rectangle {
+        return this._window.getBounds();
+    }
+    // get the bounds of a window
+    public getBackgroundColor(): string {
+        return this._window.getBackgroundColor();
+    }
+    // get the bounds of a window
+    public getContentBounds(): Electron.Rectangle {
+        return this._window.getContentBounds();
     }
 
     // get the id of the window
@@ -170,6 +182,26 @@ export class BrowserWindow {
     // set the background color of a window
     public setBackgroundColor(color: string): boolean {
         this._window.setBackgroundColor(color);
+        return true;
+    }
+    // preview a file in a window
+    public previewFile(path: string, displayName?: string): boolean {
+        this._window.previewFile(path, displayName);
+        return true;
+    }
+    // set the background color of a window
+    public closeFilePreview(): boolean {
+        this._window.closeFilePreview();
+        return true;
+    }
+    // set the bounds of a window
+    public setBounds(bounds: Partial<electron.Rectangle>, animate?: boolean): boolean {
+        this._window.setBounds(bounds, animate);
+        return true;
+    }
+    // set the bounds of a window
+    public setContentBounds(bounds: electron.Rectangle, animate?: boolean): boolean {
+        this._window.setContentBounds(bounds, animate);
         return true;
     }
 }
