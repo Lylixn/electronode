@@ -40,6 +40,13 @@ import {setEnabled} from "./browser_window/dynamic/post/setEnabled";
 import {isEnabled} from "./browser_window/dynamic/get/isEnabled";
 import {setSize} from "./browser_window/dynamic/post/setSize";
 import {getSize} from "./browser_window/dynamic/get/getSize";
+import {setContentSize} from "./browser_window/dynamic/post/setContentSize";
+import {getContentSize} from "./browser_window/dynamic/get/getContentSize";
+import {setMinimumSize} from "./browser_window/dynamic/post/setMinimumSize";
+import {getMinimumSize} from "./browser_window/dynamic/get/getMinimumSize";
+import {setMaximumSize} from "./browser_window/dynamic/post/setMaximumSize";
+import {getMaximumSize} from "./browser_window/dynamic/get/getMaximumSize";
+import {setResizable} from "./browser_window/dynamic/post/setResizable";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -74,6 +81,10 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_content_bounds', setContentBounds);
     server.post('/api/browser_window/:id/set_enabled', setEnabled);
     server.post('/api/browser_window/:id/set_size', setSize);
+    server.post('/api/browser_window/:id/set_content_size', setContentSize);
+    server.post('/api/browser_window/:id/set_minimum_size', setMinimumSize);
+    server.post('/api/browser_window/:id/set_maximum_size', setMaximumSize);
+    server.post('/api/browser_window/:id/set_sesizable', setResizable);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -91,6 +102,9 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/get_content_bounds', getContentBounds);
     server.get('/api/browser_window/:id/get_normal_bounds', getNormalBounds);
     server.get('/api/browser_window/:id/get_size', getSize);
+    server.get('/api/browser_window/:id/get_content_size', getContentSize);
+    server.get('/api/browser_window/:id/get_minimum_size', getMinimumSize);
+    server.get('/api/browser_window/:id/get_maximum_size', getMaximumSize);
 
     return true;
 }

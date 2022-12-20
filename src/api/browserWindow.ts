@@ -99,9 +99,21 @@ export class BrowserWindow {
     public getNormalBounds(): Electron.Rectangle {
         return this._window.getNormalBounds();
     }
-    // get the normal bounds of a window
+    // get the size of a window
     public getSize(): number[] {
         return this._window.getSize();
+    }
+    // get the content size of a window
+    public getContentSize(): number[] {
+        return this._window.getContentSize();
+    }
+    // get the minimum size of a window
+    public getMinimumSize(): number[] {
+        return this._window.getMinimumSize();
+    }
+    // get the maximum size of a window
+    public getMaximumSize(): number[] {
+        return this._window.getMaximumSize();
     }
 
     // get the id of the window
@@ -223,9 +235,29 @@ export class BrowserWindow {
         this._window.setEnabled(enable);
         return true;
     }
-    // enable or disable a window
+    // set the size of a window
     public setSize(width: number, height: number, animate?: boolean): boolean {
         this._window.setSize(width, height, animate);
+        return true;
+    }
+    // set the content size of a window
+    public setContentSize(width: number, height: number, animate?: boolean): boolean {
+        this._window.setContentSize(width, height, animate);
+        return true;
+    }
+    // set the minimum size of a window
+    public setMinimumSize(width: number, height: number): boolean {
+        this._window.setMinimumSize(width, height);
+        return true;
+    }
+    // set the maximum size of a window
+    public setMaximumSize(width: number, height: number): boolean {
+        this._window.setMaximumSize(width, height);
+        return true;
+    }
+    // set if a window is resizable
+    public setResizable(resizable: boolean): boolean {
+        this._window.setResizable(resizable);
         return true;
     }
 }
