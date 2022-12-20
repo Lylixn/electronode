@@ -1,8 +1,8 @@
 import {BrowserWindow} from "../../../api/browserWindow";
 
-export function destroy(req: any, res: any, next: () => void): void {
+export function showInactive(req: any, res: any, next: () => void): void {
     const window = BrowserWindow.getWindow(req.params.id);
-    window.destroy();
+    window.showInactive();
     res.send(true);
     next();
 }

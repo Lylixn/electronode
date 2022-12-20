@@ -80,4 +80,19 @@ export class BrowserWindow {
     public isFocused(): boolean {
         return this._window.isFocused();
     }
+    // show a window
+    public show(): boolean {
+        this._window.show();
+        return true;
+    }
+    // show a window inactive
+    public showInactive(): boolean {
+        this._window.showInactive();
+        return true;
+    }
+    // hide a window
+    public hide(): boolean {
+        this._window.hide();
+        return true;
+    }
 }

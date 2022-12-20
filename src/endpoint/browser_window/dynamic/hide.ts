@@ -1,8 +1,8 @@
 import {BrowserWindow} from "../../../api/browserWindow";
 
-export function destroy(req: any, res: any, next: () => void): void {
+export function hide(req: any, res: any, next: () => void): void {
     const window = BrowserWindow.getWindow(req.params.id);
-    window.destroy();
+    window.hide();
     res.send(true);
     next();
 }
