@@ -23,6 +23,11 @@ export class BrowserWindow {
         this._id = BrowserWindow.windows.push(this) - 1;
 
         this.createWindow();
+
+        // remove the window from the windows array when it is destroyed
+        this._window.on('close', () => {
+            this.removeWindow();
+        })
     }
 
     // create a new window
@@ -46,6 +51,22 @@ export class BrowserWindow {
     // return if the window is visible
     public isVisible(): boolean {
         return this._window.isVisible();
+    }
+    // return if the window is a modal
+    public isModal(): boolean {
+        return this._window.isModal();
+    }
+    // return if the window is maximized
+    public isMaximized(): boolean {
+        return this._window.isMaximized();
+    }
+    // return if the window is minimized
+    public isMinimized(): boolean {
+        return this._window.isMinimized();
+    }
+    // return if the window is in fullscreen
+    public isFullScreen(): boolean {
+        return this._window.isFullScreen();
     }
 
     // get the id of the window
@@ -99,6 +120,31 @@ export class BrowserWindow {
     // hide a window
     public hide(): boolean {
         this._window.hide();
+        return true;
+    }
+    // maximize a window
+    public maximize(): boolean {
+        this._window.maximize();
+        return true;
+    }
+    // unmaximize a window
+    public unmaximize(): boolean {
+        this._window.unmaximize();
+        return true;
+    }
+    // minimize a window
+    public minimize(): boolean {
+        this._window.minimize();
+        return true;
+    }
+    // restore a window
+    public restore(): boolean {
+        this._window.restore();
+        return true;
+    }
+    // set the fullscreen state of a window
+    setFullScreen(flag: boolean): boolean {
+        this._window.setFullScreen(flag);
         return true;
     }
 }

@@ -15,6 +15,15 @@ import {show} from "./browser_window/dynamic/post/show";
 import {showInactive} from "./browser_window/dynamic/post/showInactive";
 import {hide} from "./browser_window/dynamic/post/hide";
 import {isVisible} from "./browser_window/dynamic/get/isVisible";
+import {isModal} from "./browser_window/dynamic/get/isModal";
+import {maximize} from "./browser_window/dynamic/post/maximize";
+import {unmaximize} from "./browser_window/dynamic/post/unmaximize";
+import {isMaximized} from "./browser_window/dynamic/get/isMaximized";
+import {minimize} from "./browser_window/dynamic/post/minimize";
+import {restore} from "./browser_window/dynamic/post/restore";
+import {isMinimized} from "./browser_window/dynamic/get/isMinimized";
+import {setFullScreen} from "./browser_window/dynamic/post/setFullScreen";
+import {isFullScreen} from "./browser_window/dynamic/get/isFullScreen";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -34,10 +43,19 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/show', show);
     server.post('/api/browser_window/:id/show_inactive', showInactive);
     server.post('/api/browser_window/:id/hide', hide);
+    server.post('/api/browser_window/:id/maximize', maximize);
+    server.post('/api/browser_window/:id/unmaximize', unmaximize);
+    server.post('/api/browser_window/:id/minimize', minimize);
+    server.post('/api/browser_window/:id/restore', restore);
+    server.post('/api/browser_window/:id/set_full_screen', setFullScreen);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
     server.get('/api/browser_window/:id/is_visible', isVisible);
+    server.get('/api/browser_window/:id/is_modal', isModal);
+    server.get('/api/browser_window/:id/is_maximized', isMaximized);
+    server.get('/api/browser_window/:id/is_minimized', isMinimized);
+    server.get('/api/browser_window/:id/is_full_screen', isFullScreen);
 
     return true;
 }
