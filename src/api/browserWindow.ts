@@ -1,4 +1,6 @@
 import * as electron from "electron";
+import Size = Electron.Size;
+import {setBackgroundColor} from "../endpoint/browser_window/dynamic/post/setBackgroundColor";
 
 export class BrowserWindow {
     // all windows instances
@@ -67,6 +69,14 @@ export class BrowserWindow {
     // return if the window is in fullscreen
     public isFullScreen(): boolean {
         return this._window.isFullScreen();
+    }
+    // return if the window is in simple fullscreen
+    public isSimpleFullScreen(): boolean {
+        return this._window.isSimpleFullScreen();
+    }
+    // return if the window is normal
+    public isNormal(): boolean {
+        return this._window.isNormal();
     }
 
     // get the id of the window
@@ -143,8 +153,23 @@ export class BrowserWindow {
         return true;
     }
     // set the fullscreen state of a window
-    setFullScreen(flag: boolean): boolean {
+    public setFullScreen(flag: boolean): boolean {
         this._window.setFullScreen(flag);
+        return true;
+    }
+    // set simple fullscreen state of a window
+    public setSimpleFullScreen(flag: boolean): boolean {
+        this._window.setSimpleFullScreen(flag);
+        return true;
+    }
+    // set the aspect ratio of a window
+    public setAspectRatio(aspectRatio: number, extraSize?: Size): boolean {
+        this._window.setAspectRatio(aspectRatio, extraSize);
+        return true;
+    }
+    // set the background color of a window
+    public setBackgroundColor(color: string): boolean {
+        this._window.setBackgroundColor(color);
         return true;
     }
 }
