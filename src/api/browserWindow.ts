@@ -34,6 +34,20 @@ export class BrowserWindow {
         BrowserWindow.windows.splice(this._id, 1);
     }
 
+
+    // return if the window is destroyed
+    public isDestroyed(): boolean {
+        return this._window.isDestroyed();
+    }
+    // return if the window is focused
+    public isFocused(): boolean {
+        return this._window.isFocused();
+    }
+    // return if the window is visible
+    public isVisible(): boolean {
+        return this._window.isVisible();
+    }
+
     // get the id of the window
     public getId(): number {
         return this._id;
@@ -71,14 +85,6 @@ export class BrowserWindow {
     public blur(): boolean {
         this._window.blur();
         return true
-    }
-    // return if the window is destroyed
-    public isDestroyed(): boolean {
-        return this._window.isDestroyed();
-    }
-    // return if the window is focused
-    public isFocused(): boolean {
-        return this._window.isFocused();
     }
     // show a window
     public show(): boolean {
