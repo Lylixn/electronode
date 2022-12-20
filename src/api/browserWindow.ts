@@ -1,5 +1,6 @@
 import * as electron from "electron";
 import Size = Electron.Size;
+import {isEnabled} from "../endpoint/browser_window/dynamic/get/isEnabled";
 
 export class BrowserWindow {
     // all windows instances
@@ -77,6 +78,10 @@ export class BrowserWindow {
     public isNormal(): boolean {
         return this._window.isNormal();
     }
+    // return if the window is enabled
+    public isEnabled(): boolean {
+        return this._window.isEnabled();
+    }
 
     // get the bounds of a window
     public getBounds(): electron.Rectangle {
@@ -89,6 +94,14 @@ export class BrowserWindow {
     // get the bounds of a window
     public getContentBounds(): Electron.Rectangle {
         return this._window.getContentBounds();
+    }
+    // get the normal bounds of a window
+    public getNormalBounds(): Electron.Rectangle {
+        return this._window.getNormalBounds();
+    }
+    // get the normal bounds of a window
+    public getSize(): number[] {
+        return this._window.getSize();
     }
 
     // get the id of the window
@@ -164,6 +177,17 @@ export class BrowserWindow {
         this._window.restore();
         return true;
     }
+    // preview a file in a window
+    public previewFile(path: string, displayName?: string): boolean {
+        this._window.previewFile(path, displayName);
+        return true;
+    }
+    // set the background color of a window
+    public closeFilePreview(): boolean {
+        this._window.closeFilePreview();
+        return true;
+    }
+
     // set the fullscreen state of a window
     public setFullScreen(flag: boolean): boolean {
         this._window.setFullScreen(flag);
@@ -184,16 +208,6 @@ export class BrowserWindow {
         this._window.setBackgroundColor(color);
         return true;
     }
-    // preview a file in a window
-    public previewFile(path: string, displayName?: string): boolean {
-        this._window.previewFile(path, displayName);
-        return true;
-    }
-    // set the background color of a window
-    public closeFilePreview(): boolean {
-        this._window.closeFilePreview();
-        return true;
-    }
     // set the bounds of a window
     public setBounds(bounds: Partial<electron.Rectangle>, animate?: boolean): boolean {
         this._window.setBounds(bounds, animate);
@@ -202,6 +216,16 @@ export class BrowserWindow {
     // set the bounds of a window
     public setContentBounds(bounds: electron.Rectangle, animate?: boolean): boolean {
         this._window.setContentBounds(bounds, animate);
+        return true;
+    }
+    // enable or disable a window
+    public setEnabled(enable: boolean): boolean {
+        this._window.setEnabled(enable);
+        return true;
+    }
+    // enable or disable a window
+    public setSize(width: number, height: number, animate?: boolean): boolean {
+        this._window.setSize(width, height, animate);
         return true;
     }
 }

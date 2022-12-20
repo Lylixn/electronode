@@ -35,6 +35,11 @@ import {getBounds} from "./browser_window/dynamic/get/getBounds";
 import {getBackgroundColor} from "./browser_window/dynamic/get/getBackgroundColor";
 import {setContentBounds} from "./browser_window/dynamic/post/setContentBounds";
 import {getContentBounds} from "./browser_window/dynamic/get/getContentBounds";
+import {getNormalBounds} from "./browser_window/dynamic/get/getNormalBounds";
+import {setEnabled} from "./browser_window/dynamic/post/setEnabled";
+import {isEnabled} from "./browser_window/dynamic/get/isEnabled";
+import {setSize} from "./browser_window/dynamic/post/setSize";
+import {getSize} from "./browser_window/dynamic/get/getSize";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -67,6 +72,8 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_background_color', setBackgroundColor);
     server.post('/api/browser_window/:id/set_bounds', setBounds);
     server.post('/api/browser_window/:id/set_content_bounds', setContentBounds);
+    server.post('/api/browser_window/:id/set_enabled', setEnabled);
+    server.post('/api/browser_window/:id/set_size', setSize);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -77,10 +84,13 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_full_screen', isFullScreen);
     server.get('/api/browser_window/:id/is_simple_full_screen', isSimpleFullScreen);
     server.get('/api/browser_window/:id/is_normal', isNormal);
+    server.get('/api/browser_window/:id/is_enabled', isEnabled);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
     server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);
     server.get('/api/browser_window/:id/get_content_bounds', getContentBounds);
+    server.get('/api/browser_window/:id/get_normal_bounds', getNormalBounds);
+    server.get('/api/browser_window/:id/get_size', getSize);
 
     return true;
 }
