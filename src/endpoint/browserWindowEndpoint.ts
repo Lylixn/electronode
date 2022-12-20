@@ -47,6 +47,7 @@ import {getMinimumSize} from "./browser_window/dynamic/get/getMinimumSize";
 import {setMaximumSize} from "./browser_window/dynamic/post/setMaximumSize";
 import {getMaximumSize} from "./browser_window/dynamic/get/getMaximumSize";
 import {setResizable} from "./browser_window/dynamic/post/setResizable";
+import {isResizable} from "./browser_window/dynamic/get/isResizable";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -84,7 +85,7 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_content_size', setContentSize);
     server.post('/api/browser_window/:id/set_minimum_size', setMinimumSize);
     server.post('/api/browser_window/:id/set_maximum_size', setMaximumSize);
-    server.post('/api/browser_window/:id/set_sesizable', setResizable);
+    server.post('/api/browser_window/:id/set_resizable', setResizable);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -96,6 +97,7 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_simple_full_screen', isSimpleFullScreen);
     server.get('/api/browser_window/:id/is_normal', isNormal);
     server.get('/api/browser_window/:id/is_enabled', isEnabled);
+    server.get('/api/browser_window/:id/is_resizable', isResizable);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
     server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);

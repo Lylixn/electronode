@@ -82,6 +82,10 @@ export class BrowserWindow {
     public isEnabled(): boolean {
         return this._window.isEnabled();
     }
+    // return if the window is enabled
+    public isResizable(): boolean {
+        return this._window.isResizable();
+    }
 
     // get the bounds of a window
     public getBounds(): electron.Rectangle {
