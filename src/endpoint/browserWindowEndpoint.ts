@@ -52,6 +52,24 @@ import {setMovable} from "./browser_window/dynamic/post/setMovable";
 import {isMovable} from "./browser_window/dynamic/get/isMovable";
 import {setMinimizable} from "./browser_window/dynamic/post/setMinimizable";
 import {isMinimizable} from "./browser_window/dynamic/get/isMinimizable";
+import {setMaximizable} from "./browser_window/dynamic/post/setMaximizable";
+import {isMaximizable} from "./browser_window/dynamic/get/isMaximizable";
+import {setFullScreenable} from "./browser_window/dynamic/post/setFullScreenable";
+import {isFullScreenable} from "./browser_window/dynamic/get/isFullScreenable";
+import {setAlwaysOnTop} from "./browser_window/dynamic/post/setAlwaysOnTop";
+import {isAlwaysOnTop} from "./browser_window/dynamic/get/isAlwaysOnTop";
+import {moveAbove} from "./browser_window/dynamic/post/moveAbove";
+import {moveTop} from "./browser_window/dynamic/post/moveTop";
+import {center} from "./browser_window/dynamic/post/center";
+import {setPosition} from "./browser_window/dynamic/post/setPosition";
+import {getPosition} from "./browser_window/dynamic/get/getPosition";
+import {setTitle} from "./browser_window/dynamic/post/setTitle";
+import {getTitle} from "./browser_window/dynamic/get/getTitle";
+import {setSheetOffset} from "./browser_window/dynamic/post/setSheetOffset";
+import {flashFrame} from "./browser_window/dynamic/post/flashFrame";
+import {setSkipTaskbar} from "./browser_window/dynamic/post/setSkipTaskbar";
+import {setKiosk} from "./browser_window/dynamic/post/setKiosk";
+import {isKiosk} from "./browser_window/dynamic/get/isKiosk";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -77,6 +95,13 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/restore', restore);
     server.post('/api/browser_window/:id/preview_file', previewFile);
     server.post('/api/browser_window/:id/close_file_preview', closeFilePreview);
+    server.post('/api/browser_window/:id/move_above', moveAbove);
+    server.post('/api/browser_window/:id/move_top', moveTop);
+    server.post('/api/browser_window/:id/center', center);
+    server.post('/api/browser_window/:id/flash_frame', flashFrame);
+    server.post('/api/browser_window/:id/hook_window_message', hookWindowMessage);
+    server.post('/api/browser_window/:id/unhook_window_message', unhookWindowMessage);
+    server.post('/api/browser_window/:id/unhook_all_window_messages', unhookAllWindowMessages);
 
     server.post('/api/browser_window/:id/set_full_screen', setFullScreen);
     server.post('/api/browser_window/:id/set_simple_full_screen', setSimpleFullScreen);
@@ -92,6 +117,14 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_resizable', setResizable);
     server.post('/api/browser_window/:id/set_movable', setMovable);
     server.post('/api/browser_window/:id/set_minimizable', setMinimizable);
+    server.post('/api/browser_window/:id/set_maximizable', setMaximizable);
+    server.post('/api/browser_window/:id/set_full_screenable', setFullScreenable);
+    server.post('/api/browser_window/:id/set_always_on_top', setAlwaysOnTop);
+    server.post('/api/browser_window/:id/set_position', setPosition);
+    server.post('/api/browser_window/:id/set_title', setTitle);
+    server.post('/api/browser_window/:id/set_sheet_offset', setSheetOffset);
+    server.post('/api/browser_window/:id/set_skip_taskbar', setSkipTaskbar);
+    server.post('/api/browser_window/:id/set_kiosk', setKiosk);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -106,6 +139,12 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_resizable', isResizable);
     server.get('/api/browser_window/:id/is_movable', isMovable);
     server.get('/api/browser_window/:id/is_minimizable', isMinimizable);
+    server.get('/api/browser_window/:id/is_maximizable', isMaximizable);
+    server.get('/api/browser_window/:id/is_full_screenable', isFullScreenable);
+    server.get('/api/browser_window/:id/is_always_on_top', isAlwaysOnTop);
+    server.get('/api/browser_window/:id/is_kiosk', isKiosk);
+    server.get('/api/browser_window/:id/is_tablet_mode', isTabletMode);
+    server.get('/api/browser_window/:id/is_window_message_hooked', isWindowMessageHooked);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
     server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);
@@ -115,6 +154,10 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/get_content_size', getContentSize);
     server.get('/api/browser_window/:id/get_minimum_size', getMinimumSize);
     server.get('/api/browser_window/:id/get_maximum_size', getMaximumSize);
+    server.get('/api/browser_window/:id/get_position', getPosition);
+    server.get('/api/browser_window/:id/get_title', getTitle);
+    server.get('/api/browser_window/:id/get_media_source_id', getMediaSourceId);
+    server.get('/api/browser_window/:id/get_native_window_handle', getNativeWindowHandle);
 
     return true;
 }

@@ -94,6 +94,22 @@ export class BrowserWindow {
     public isMinimizable(): boolean {
         return this._window.isMinimizable();
     }
+    // return if the window is maximizable
+    public isMaximizable(): boolean {
+        return this._window.isMaximizable();
+    }
+    // return if the window is fullscreenable
+    public isFullScreenable(): boolean {
+        return this._window.isFullScreenable();
+    }
+    // return if the window is fullscreenable
+    public isAlwaysOnTop(): boolean {
+        return this._window.isAlwaysOnTop();
+    }
+    // return if the window is kiosk
+    public isKiosk(): boolean {
+        return this._window.isKiosk();
+    }
 
     // get the bounds of a window
     public getBounds(): electron.Rectangle {
@@ -127,7 +143,14 @@ export class BrowserWindow {
     public getMaximumSize(): number[] {
         return this._window.getMaximumSize();
     }
-
+    // get the position of a window
+    public getPosition(): number[] {
+        return this._window.getPosition();
+    }
+    // get the title of a window
+    public getTitle(): string {
+        return this._window.getTitle();
+    }
     // get the id of the window
     public getId(): number {
         return this._id;
@@ -211,6 +234,26 @@ export class BrowserWindow {
         this._window.closeFilePreview();
         return true;
     }
+    // move a window above all others window
+    public moveAbove(mediaSourceId: string): boolean {
+        this._window.moveAbove(mediaSourceId);
+        return true;
+    }
+    // move a window on top
+    public moveTop(): boolean {
+        this._window.moveTop();
+        return true;
+    }
+    // center a window
+    public center(): boolean {
+        this._window.center();
+        return true;
+    }
+    // center a window
+    public flashFrame(flag: boolean): boolean {
+        this._window.flashFrame(flag);
+        return true;
+    }
 
     // set the fullscreen state of a window
     public setFullScreen(flag: boolean): boolean {
@@ -280,6 +323,51 @@ export class BrowserWindow {
     // set if a window is minimizable
     public setMinimizable(minimizable: boolean): boolean {
         this._window.setMinimizable(minimizable);
+        return true;
+    }
+    // set if a window is maximizable
+    public setMaximizable(maximizable: boolean): boolean {
+        this._window.setMaximizable(maximizable);
+        return true;
+    }
+    // set if a window is fullscreenable
+    public setFullScreenable(fullscreenable: boolean): boolean {
+        this._window.setFullScreenable(fullscreenable);
+        return true;
+    }
+    // set if a window is closable
+    public setClosable(closable : boolean): boolean {
+        this._window.setClosable(closable);
+        return true;
+    }
+    // set a window's always on top state
+    public setAlwaysOnTop(flag : boolean, level?: 'normal' | 'floating' | 'torn-off-menu' | 'modal-panel' | 'main-menu' | 'status' | 'pop-up-menu' | 'screen-saver', relativeLevel?: number): boolean {
+        this._window.setAlwaysOnTop(flag, level, relativeLevel);
+        return true;
+    }
+    // set a window's always on top state
+    public setPosition(x: number, y: number, animate?:boolean): boolean {
+        this._window.setPosition(x, y, animate);
+        return true;
+    }
+    // set a window's title
+    public setTitle(title: string): boolean {
+        this._window.setTitle(title);
+        return true;
+    }
+    // set a window's title
+    public setSheetOffset(offsetY: number, offsetX?: number): boolean {
+        this._window.setSheetOffset(offsetY, offsetX);
+        return true;
+    }
+    // set skip taskbar state
+    public setSkipTaskbar(skip: boolean): boolean {
+        this._window.setSkipTaskbar(skip);
+        return true;
+    }
+    // set kiosk state
+    public setKiosk(flag: boolean): boolean {
+        this._window.setKiosk(flag);
         return true;
     }
 }
