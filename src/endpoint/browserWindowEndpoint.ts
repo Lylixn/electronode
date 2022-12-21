@@ -48,6 +48,10 @@ import {setMaximumSize} from "./browser_window/dynamic/post/setMaximumSize";
 import {getMaximumSize} from "./browser_window/dynamic/get/getMaximumSize";
 import {setResizable} from "./browser_window/dynamic/post/setResizable";
 import {isResizable} from "./browser_window/dynamic/get/isResizable";
+import {setMovable} from "./browser_window/dynamic/post/setMovable";
+import {isMovable} from "./browser_window/dynamic/get/isMovable";
+import {setMinimizable} from "./browser_window/dynamic/post/setMinimizable";
+import {isMinimizable} from "./browser_window/dynamic/get/isMinimizable";
 
 // Init all the endpoint
 export function BrowserWindowInit(server: restify.Server): boolean {
@@ -86,6 +90,8 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_minimum_size', setMinimumSize);
     server.post('/api/browser_window/:id/set_maximum_size', setMaximumSize);
     server.post('/api/browser_window/:id/set_resizable', setResizable);
+    server.post('/api/browser_window/:id/set_movable', setMovable);
+    server.post('/api/browser_window/:id/set_minimizable', setMinimizable);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -98,6 +104,8 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_normal', isNormal);
     server.get('/api/browser_window/:id/is_enabled', isEnabled);
     server.get('/api/browser_window/:id/is_resizable', isResizable);
+    server.get('/api/browser_window/:id/is_movable', isMovable);
+    server.get('/api/browser_window/:id/is_minimizable', isMinimizable);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
     server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);

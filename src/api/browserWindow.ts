@@ -86,6 +86,14 @@ export class BrowserWindow {
     public isResizable(): boolean {
         return this._window.isResizable();
     }
+    // return if the window is enabled
+    public isMovable(): boolean {
+        return this._window.isMovable();
+    }
+    // return if the window is minimizable
+    public isMinimizable(): boolean {
+        return this._window.isMinimizable();
+    }
 
     // get the bounds of a window
     public getBounds(): electron.Rectangle {
@@ -262,6 +270,16 @@ export class BrowserWindow {
     // set if a window is resizable
     public setResizable(resizable: boolean): boolean {
         this._window.setResizable(resizable);
+        return true;
+    }
+    // set if a window is movable
+    public setMovable(movable: boolean): boolean {
+        this._window.setMovable(movable);
+        return true;
+    }
+    // set if a window is minimizable
+    public setMinimizable(minimizable: boolean): boolean {
+        this._window.setMinimizable(minimizable);
         return true;
     }
 }
