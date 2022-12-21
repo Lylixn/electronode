@@ -191,7 +191,6 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     // server.get('/api/browser_window/:id/is_menu_bar_auto_hide', isMenuBarAutoHide);
     // server.get('/api/browser_window/:id/is_menu_bar_visible', isMenuBarVisible);
     // server.get('/api/browser_window/:id/is_visible_on_all_workspaces', isVisibleOnAllWorkspaces);
-    //
     // server.get('/api/browser_window/:id/has_shadow', hasShadow);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
