@@ -22,6 +22,7 @@
   },
   "dependencies": {
     "@types/restify": "^8.5.5",
+    "axios": "^1.2.1",
     "restify": "^10.0.0"
   }
 }

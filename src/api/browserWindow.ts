@@ -1,6 +1,5 @@
 import * as electron from "electron";
 import Size = Electron.Size;
-import {isEnabled} from "../endpoint/browser_window/dynamic/get/isEnabled";
 
 export class BrowserWindow {
     // all windows instances

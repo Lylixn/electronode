@@ -1,6 +1,7 @@
 import * as restify from "restify";
 import * as electron from "electron";
 import {BrowserWindowEndpoint} from "./endpoint/browserWindowEndpoint";
+import {App} from "./api/app";
 
 // Prevent script close when all windows are closed
 electron.app.on('before-quit', (event: electron.Event) => {
@@ -33,6 +34,9 @@ export class Electronode {
   }
 
   init(): void {
+    // static
+    new App()
+    // endpoint
     new BrowserWindowEndpoint(this._server)
   }
 
