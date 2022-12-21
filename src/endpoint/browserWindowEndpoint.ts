@@ -80,8 +80,6 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/create', createWindow);
 
     // dynamic API
-    server.post('/api/browser_window/:id/load_url', loadUrl);
-    server.post('/api/browser_window/:id/load_file', loadFile);
     server.post('/api/browser_window/:id/destroy', destroy);
     server.post('/api/browser_window/:id/close', close);
     server.post('/api/browser_window/:id/focus', focus);
@@ -99,9 +97,26 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/move_top', moveTop);
     server.post('/api/browser_window/:id/center', center);
     server.post('/api/browser_window/:id/flash_frame', flashFrame);
-    server.post('/api/browser_window/:id/hook_window_message', hookWindowMessage);
-    server.post('/api/browser_window/:id/unhook_window_message', unhookWindowMessage);
-    server.post('/api/browser_window/:id/unhook_all_window_messages', unhookAllWindowMessages);
+    // server.post('/api/browser_window/:id/hook_window_message', hookWindowMessage);
+    // server.post('/api/browser_window/:id/unhook_window_message', unhookWindowMessage);
+    // server.post('/api/browser_window/:id/unhook_all_window_messages', unhookAllWindowMessages);
+    // server.post('/api/browser_window/:id/focus_on_web_view', focusOnWebView);
+    // server.post('/api/browser_window/:id/blur_web_view', blurWebView);
+    // server.post('/api/browser_window/:id/capture_page', capturePage);
+    server.post('/api/browser_window/:id/load_url', loadUrl);
+    server.post('/api/browser_window/:id/load_file', loadFile);
+    // server.post('/api/browser_window/:id/reload', reload);
+    // server.post('/api/browser_window/:id/set_menu', setMenu);
+    // server.post('/api/browser_window/:id/remove_menu', removeMenu);
+    // server.post('/api/browser_window/:id/show_definition_for_selection', showDefinitionForSelection);
+    // server.post('/api/browser_window/:id/select_previous_tab', selectPreviousTab);
+    // server.post('/api/browser_window/:id/select_next_tab', selectNextTab);
+    // server.post('/api/browser_window/:id/merge_all_windows', mergeAllWindows);
+    // server.post('/api/browser_window/:id/move_tab_to_new_window', moveTabToNewWindow);
+    // server.post('/api/browser_window/:id/toggle_tab_bar', toggleTabBar);
+    // server.post('/api/browser_window/:id/add_tabbed_window', addTabbedWindow);
+    // server.post('/api/browser_window/:id/add_browser_view', addBrowserView);
+    // server.post('/api/browser_window/:id/remove_browser_view', removeBrowserView);
 
     server.post('/api/browser_window/:id/set_full_screen', setFullScreen);
     server.post('/api/browser_window/:id/set_simple_full_screen', setSimpleFullScreen);
@@ -125,6 +140,33 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.post('/api/browser_window/:id/set_sheet_offset', setSheetOffset);
     server.post('/api/browser_window/:id/set_skip_taskbar', setSkipTaskbar);
     server.post('/api/browser_window/:id/set_kiosk', setKiosk);
+    // server.post('/api/browser_window/:id/set_represented_filename', setRepresentedFilename);
+    // server.post('/api/browser_window/:id/set_document_edited', setDocumentEdited);
+    // server.post('/api/browser_window/:id/set_progress_bar', setProgressBar);
+    // server.post('/api/browser_window/:id/set_overlay_icon', setOverlayIcon);
+    // server.post('/api/browser_window/:id/set_has_shadow', setHasShadow);
+    // server.post('/api/browser_window/:id/set_opacity', setOpacity);
+    // server.get('/api/browser_window/:id/set_shape', setShape);
+    // server.get('/api/browser_window/:id/set_thumbar_buttons', setThumbarButtons);
+    // server.get('/api/browser_window/:id/set_thumbnail_clip', setThumbnailClip);
+    // server.get('/api/browser_window/:id/set_thumbnail_tool_tip', setThumbnailToolTip);
+    // server.get('/api/browser_window/:id/set_app_details', setAppDetails);
+    // server.post('/api/browser_window/:id/set_icon', setIcon);
+    // server.post('/api/browser_window/:id/set_window_button_visibility', setWindowButtonVisibility);
+    // server.post('/api/browser_window/:id/set_auto_hide_menu_bar', setAutoHideMenuBar);
+    // server.post('/api/browser_window/:id/set_menu_bar_visibility', setMenuBarVisibility);
+    // server.post('/api/browser_window/:id/set_visible_on_all_workspaces', setVisibleOnAllWorkspaces);
+    // server.post('/api/browser_window/:id/set_ignore_mouse_events', setIgnoreMouseEvents);
+    // server.post('/api/browser_window/:id/set_content_protection', setContentProtection);
+    // server.post('/api/browser_window/:id/set_focusable', setFocusable);
+    // server.get('/api/browser_window/:id/set_focusable', setFocusable);
+    // server.get('/api/browser_window/:id/set_parent_window', setParentWindow);
+    // server.get('/api/browser_window/:id/set_auto_hide_cursor', setAutoHideCursor);
+    // server.post('/api/browser_window/:id/set_vibrancy', setVibrancy);
+    // server.post('/api/browser_window/:id/set_touch_bar', setTouchBar);
+    // server.post('/api/browser_window/:id/set_browser_view', setBrowserView);
+    // server.post('/api/browser_window/:id/set_top_browser_view', setTopBrowserView);
+    // server.post('/api/browser_window/:id/set_title_bar_overlay', setTitleBarOverlay);
 
     server.get('/api/browser_window/:id/is_focused', isFocused);
     server.get('/api/browser_window/:id/is_destroyed', isDestroyed);
@@ -143,8 +185,14 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/is_full_screenable', isFullScreenable);
     server.get('/api/browser_window/:id/is_always_on_top', isAlwaysOnTop);
     server.get('/api/browser_window/:id/is_kiosk', isKiosk);
-    server.get('/api/browser_window/:id/is_tablet_mode', isTabletMode);
-    server.get('/api/browser_window/:id/is_window_message_hooked', isWindowMessageHooked);
+    // server.get('/api/browser_window/:id/is_tablet_mode', isTabletMode);
+    // server.get('/api/browser_window/:id/is_window_message_hooked', isWindowMessageHooked);
+    // server.get('/api/browser_window/:id/is_document_edited', isDocumentEdited);
+    // server.get('/api/browser_window/:id/is_menu_bar_auto_hide', isMenuBarAutoHide);
+    // server.get('/api/browser_window/:id/is_menu_bar_visible', isMenuBarVisible);
+    // server.get('/api/browser_window/:id/is_visible_on_all_workspaces', isVisibleOnAllWorkspaces);
+    //
+    // server.get('/api/browser_window/:id/has_shadow', hasShadow);
 
     server.get('/api/browser_window/:id/get_bounds', getBounds);
     server.get('/api/browser_window/:id/get_background_color', getBackgroundColor);
@@ -156,8 +204,16 @@ export function BrowserWindowInit(server: restify.Server): boolean {
     server.get('/api/browser_window/:id/get_maximum_size', getMaximumSize);
     server.get('/api/browser_window/:id/get_position', getPosition);
     server.get('/api/browser_window/:id/get_title', getTitle);
-    server.get('/api/browser_window/:id/get_media_source_id', getMediaSourceId);
-    server.get('/api/browser_window/:id/get_native_window_handle', getNativeWindowHandle);
+    // server.get('/api/browser_window/:id/get_media_source_id', getMediaSourceId);
+    // server.get('/api/browser_window/:id/get_native_window_handle', getNativeWindowHandle);
+    // server.get('/api/browser_window/:id/get_represented_filename', getRepresentedFilename);
+    // server.get('/api/browser_window/:id/get_opacity', getOpacity);
+    // server.get('/api/browser_window/:id/get_parent_window', getParentWindow);
+    // server.get('/api/browser_window/:id/get_child_windows', getChildWindows);
+    // server.post('/api/browser_window/:id/set_traffic_light_position', setTrafficLightPosition);
+    // server.post('/api/browser_window/:id/get_traffic_light_position', getTrafficLightPosition);
+    // server.post('/api/browser_window/:id/get_browser_view', getBrowserView);
+    // server.post('/api/browser_window/:id/get_browser_views', getBrowserViews);
 
     return true;
 }
